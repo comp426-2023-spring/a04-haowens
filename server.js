@@ -9,6 +9,9 @@ app.listen(port);
 
 //ALL endpoints should return HTTP headers including a status code and the appropriate content type for the response.
 //Default API endpoint that returns 404 NOT FOUND for any endpoints that are not defined
+app.get("*", (req, res) => {
+    res.status(404).send("404 NOT FOUND");
+})
 
 //Check endpoint at /app/ that returns 200 OK.
 app.get('/app', (req, res) => {
