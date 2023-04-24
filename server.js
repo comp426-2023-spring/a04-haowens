@@ -26,7 +26,7 @@ app.get('/app/rpsls', (req, res) => {
 
 //Endpoint /app/rps/play/ should accept request bodies in the following forms: shot=(rock|paper|scissors) (URLEncoded) or {"shot":"(rock|paper|scissors)"} (JSON) as data bodies and return {"player":"(rock|paper|scissors)","opponent":"(rock|paper|scissors)","result":"(win|lose|tie)"}
 app.get('/app/rps/play', (req, res) => {
-    res.status(200).send(rps(req.params.shot));
+    res.status(200).send(rps(req.query.shot));
 })
 
 app.post('/app/rps/play', (req, res) => {
