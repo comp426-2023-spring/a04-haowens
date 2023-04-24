@@ -54,7 +54,7 @@ app.get('/app/rps/play/:shot/', (req, res) => {
 // })
 
 //Endpoint /app/rpsls/play/(rock|paper|scissors|lizard|spock)/ should return {"player":"(rock|paper|scissors|lizard|spock)","opponent":"(rock|paper|scissors|lizard|spock)","result":"(win|lose|tie)"}
-app.get('/app/rpsls/play/:shot', (req, res) => {
+app.get('/app/rpsls/play/:shot/', (req, res) => {
     res.status(200).send(rpsls(req.params.shot));
 })
 
