@@ -2,14 +2,13 @@
 import {rps, rpsls} from "./lib/rpsls.js";
 const express = require('express');
 const app = express();
-
-// const http = require("http"); 
-// const fs = require("fs");
-
 const minimist = require('minimist');
 const args = minimist(process.argv.slice(2)); 
 const port = args["port"] || 5000;
 app.listen(port);
+
+//ALL endpoints should return HTTP headers including a status code and the appropriate content type for the response.
+//Default API endpoint that returns 404 NOT FOUND for any endpoints that are not defined
 
 //Check endpoint at /app/ that returns 200 OK.
 app.get('/app', (req, res) => {
@@ -33,3 +32,6 @@ app.get('/app/rps/play', () => {
 
 //Endpoint /app/rpsls/play/ should accept request bodies in the following forms: shot=(rock|paper|scissors) (URLEncoded) or {"shot":"(rock|paper|scissors)"} (JSON) and return {"player":"(rock|paper|scissors)","opponent":"(rock|paper|scissors)","result":"(win|lose|tie)"}
 
+//Endpoint /app/rpsls/play/(rock|paper|scissors)/ should return {"player":"(rock|paper|scissors)","opponent":"(rock|paper|scissors)","result":"(win|lose|tie)"}
+
+//Endpoint /app/rpsls/play/(rock|paper|scissors|lizard|spock)/ should return {"player":"(rock|paper|scissors|lizard|spock)","opponent":"(rock|paper|scissors|lizard|spock)","result":"(win|lose|tie)"}
