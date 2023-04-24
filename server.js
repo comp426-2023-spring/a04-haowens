@@ -11,40 +11,40 @@ app.listen(port);
 //ALL endpoints should return HTTP headers including a status code and the appropriate content type for the response.
 
 //Check endpoint at /app/ that returns 200 OK.
-app.get('/app', (req, res) => {
+app.get('/app/', (req, res) => {
 	res.status(200).send("200 OK");
 })
 
 //Endpoint /app/rps/ that returns {"player":"(rock|paper|scissors)"}. (HINT: regex)
-app.get('/app/rps', (req, res) => {
+app.get('/app/rps/', (req, res) => {
     res.status(200).send(rps());
 })
 
 //Endpoint /app/rpsls/ that returns {"player":"(rock|paper|scissors|lizard|spock)"}
-app.get('/app/rpsls', (req, res) => {
+app.get('/app/rpsls/', (req, res) => {
     res.status(200).send(rpsls());
 })
 
 //Endpoint /app/rps/play/ should accept request bodies in the following forms: shot=(rock|paper|scissors) (URLEncoded) or {"shot":"(rock|paper|scissors)"} (JSON) as data bodies and return {"player":"(rock|paper|scissors)","opponent":"(rock|paper|scissors)","result":"(win|lose|tie)"}
-app.get('/app/rps/play', (req, res) => {
+app.get('/app/rps/play/', (req, res) => {
     res.status(200).send(rps(req.query.shot));
 })
 
-app.post('/app/rps/play', (req, res) => {
+app.post('/app/rps/play/', (req, res) => {
     res.status(200).send(rps(req.body.shot));
 })
 
 //Endpoint /app/rpsls/play/ should accept request bodies in the following forms: shot=(rock|paper|scissors) (URLEncoded) or {"shot":"(rock|paper|scissors)"} (JSON) and return {"player":"(rock|paper|scissors)","opponent":"(rock|paper|scissors)","result":"(win|lose|tie)"}
-app.get('/app/rpsls/play', (req, res) => {
+app.get('/app/rpsls/play/', (req, res) => {
     res.status(200).send(rpsls(req.query.shot));
 })
 
-app.post('/app/rpsls/play', (req, res) => {
+app.post('/app/rpsls/play/', (req, res) => {
     res.status(200).send(rpsls(req.body.shot));
 })
 
 //Endpoint /app/rpsls/play/(rock|paper|scissors)/ should return {"player":"(rock|paper|scissors)","opponent":"(rock|paper|scissors)","result":"(win|lose|tie)"}
-app.get('/app/rps/play/:shot', (req, res) => {
+app.get('/app/rps/play/:shot/', (req, res) => {
     res.status(200).send(rps(req.params.shot));
 })
 
