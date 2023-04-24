@@ -47,18 +47,18 @@ app.get('/app/rps/play/:shot', (req, res) => {
     res.status(200).send(rps(req.params.shot));
 })
 
-app.post('/app/rps/play/:shot', (req, res) => {
-    res.status(200).send(rps(req.body.shot));
-})
+// app.post('/app/rps/play/:shot', (req, res) => {
+//     res.status(200).send(rps(req.body.shot));
+// })
 
 //Endpoint /app/rpsls/play/(rock|paper|scissors|lizard|spock)/ should return {"player":"(rock|paper|scissors|lizard|spock)","opponent":"(rock|paper|scissors|lizard|spock)","result":"(win|lose|tie)"}
 app.get('/app/rpsls/play/:shot', (req, res) => {
     res.status(200).send(rpsls(req.params.shot));
 })
 
-app.post('/app/rpsls/play/:shot', (req, res) => {
-    res.status(200).send(rpsls(req.body.shot));
-})
+// app.post('/app/rpsls/play/:shot', (req, res) => {
+//     res.status(200).send(rpsls(req.body.shot));
+// })
 
 //Default API endpoint that returns 404 NOT FOUND for any endpoints that are not defined
 app.get("*", (req, res) => {
