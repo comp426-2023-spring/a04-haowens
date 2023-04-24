@@ -5,7 +5,7 @@ import minimist from 'minimist';
 const app = express();
 app.use(express.urlencoded({extended: true}));
 const args = minimist(process.argv.slice(2)); 
-const port = args.port || 5000;
+const port = args["port"] || 5000;
 app.listen(port);
 
 //ALL endpoints should return HTTP headers including a status code and the appropriate content type for the response.
