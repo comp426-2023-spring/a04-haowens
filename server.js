@@ -8,10 +8,6 @@ const port = args["port"] || 5000;
 app.listen(port);
 
 //ALL endpoints should return HTTP headers including a status code and the appropriate content type for the response.
-//Default API endpoint that returns 404 NOT FOUND for any endpoints that are not defined
-app.get("*", (req, res) => {
-    res.status(404).send("404 NOT FOUND");
-})
 
 //Check endpoint at /app/ that returns 200 OK.
 app.get('/app', (req, res) => {
@@ -42,3 +38,8 @@ app.get('/app/rpsls/play', () => {
 //Endpoint /app/rpsls/play/(rock|paper|scissors)/ should return {"player":"(rock|paper|scissors)","opponent":"(rock|paper|scissors)","result":"(win|lose|tie)"}
 
 //Endpoint /app/rpsls/play/(rock|paper|scissors|lizard|spock)/ should return {"player":"(rock|paper|scissors|lizard|spock)","opponent":"(rock|paper|scissors|lizard|spock)","result":"(win|lose|tie)"}
+
+//Default API endpoint that returns 404 NOT FOUND for any endpoints that are not defined
+app.get("*", (req, res) => {
+    res.status(404).send("404 NOT FOUND");
+})
